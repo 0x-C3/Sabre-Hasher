@@ -110,7 +110,7 @@ namespace Sabre_Hasher
         {
             textInibinSaved.Text += textInibinPrimaryInput.Text + " = " + textInibinSecondaryInput.Text + "  -  " + lastInibinHash + Environment.NewLine;
         }
-        int c = 0;
+        private int c = 0;
         private void image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if(c == 3)

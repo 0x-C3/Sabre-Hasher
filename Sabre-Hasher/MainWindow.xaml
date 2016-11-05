@@ -42,7 +42,7 @@
             <TextBox x:Name="textRAFSaved" Margin="0,0,-907,-579" TextWrapping="Wrap" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" IsReadOnly="True" HorizontalAlignment="Right" Height="548.687" VerticalAlignment="Bottom" Width="803"/>
             <Button x:Name="buttonRAFAdd" Content="Add to List" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-803,0" VerticalAlignment="Top" Width="142" Style="{DynamicResource ButtonDefault}" Click="buttonRAFAdd_Click"/>
         </Grid>
-        <Grid x:Name="gridBone" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+        <Grid x:Name="gridBone" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100">
             <TextBox x:Name="textBoneInput" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-344,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" MaxLength="27" TextChanged="textBoneInput_TextChanged"/>
             <TextBox x:Name="textBoneOutput" Height="24.812" Margin="0,19.501,-631,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" HorizontalAlignment="Right" Width="240"/>
             <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Right" Margin="0,44.313,-170,39" TextWrapping="Wrap" Text="Input String" Width="66" Foreground="#FFFF9700"/>
@@ -50,6 +50,13 @@
             <TextBox x:Name="textBoneSaved" Margin="0,0,-631,-579" TextWrapping="Wrap" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" IsReadOnly="True" HorizontalAlignment="Right" Height="584.687" VerticalAlignment="Bottom" Width="527"/>
             <Button x:Name="buttonBoneAdd" Content="Add to List" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-803,0" VerticalAlignment="Top" Width="142" Style="{DynamicResource ButtonDefault}" Click="buttonBoneAdd_Click"/>
         </Grid>
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="373" Margin="986,308,0,0" VerticalAlignment="Top" Width="278" Style="{DynamicResource RichTextBoxStyle1}" IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph>
+                    <Run/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
 
     </Grid>
 </Window>
