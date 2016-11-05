@@ -25,6 +25,8 @@ namespace Sabre_Hasher
         public MainWindow()
         {
             InitializeComponent();
+            UpdateTextbox(richTextBox, "1.0.0.0 = ", Color.FromRgb(9, 113, 198));
+            UpdateTextbox(richTextBox, "First release of this tool", Color.FromRgb(155, 101, 7));
         }
 
         private void buttonBINHash_Click(object sender, RoutedEventArgs e)
@@ -120,6 +122,16 @@ namespace Sabre_Hasher
                 c=0;
             }
             c++;
+        }
+        private void UpdateTextbox(RichTextBox rtbOutput, string message, Color color)
+        {
+            rtbOutput.Dispatcher.Invoke((Action)(() =>
+            {
+                TextRange range = new TextRange(rtbOutput.Document.ContentEnd, rtbOutput.Document.ContentEnd);
+                range.Text = message;
+                range.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush((Color)color));
+            })
+            );
         }
     }
 }
