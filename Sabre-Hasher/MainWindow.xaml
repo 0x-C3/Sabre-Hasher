@@ -1,0 +1,55 @@
+﻿<Window x:Class="Sabre_Hasher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sabre_Hasher"
+        mc:Ignorable="d"
+        Title="Hasher" Height="720" Width="1280" ResizeMode="CanMinimize" Icon="Sabre_Logo.png.ico">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/Background.png"/>
+        </Grid.Background>
+        <Button x:Name="buttonBINHash" Content="Button" HorizontalAlignment="Left" Height="47.312" Margin="10,19.501,0,0" VerticalAlignment="Top" Width="152.667" Template="{DynamicResource ButtonBIN}" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Click="buttonBINHash_Click"/>
+        <Image x:Name="image" HorizontalAlignment="Right" Height="303.439" VerticalAlignment="Top" Width="287.5" Source="Resources/Sabre_Logo.png" Stretch="UniformToFill" MouseLeftButtonDown="image_MouseLeftButtonDown"/>
+        <Button x:Name="buttonInibinHash" Content="Button" HorizontalAlignment="Left" Height="47.312" Margin="10,71.813,0,0" VerticalAlignment="Top" Width="152.667" Template="{DynamicResource ButtonInibin}" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Click="buttonInibinHash_Click"/>
+        <Button x:Name="buttonRAFHash" Content="Button" HorizontalAlignment="Left" Height="47.312" Margin="10,124.125,0,0" VerticalAlignment="Top" Width="152.667" Template="{DynamicResource ButtonRAF}" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Click="buttonRAFHash_Click"/>
+        <Button x:Name="buttonBoneHash" Content="Button" HorizontalAlignment="Left" Height="47.312" Margin="10,176.437,0,0" VerticalAlignment="Top" Width="152.667" Template="{DynamicResource ButtonBone}" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Click="buttonBoneHash_Click"/>
+        <Grid x:Name="gridBIN" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+            <TextBox x:Name="textBINInput" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-344,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" TextChanged="textBINInput_TextChanged" MaxLength="27"/>
+            <TextBox x:Name="textBINOutput" Height="24.812" Margin="0,19.501,-631,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" HorizontalAlignment="Right" Width="240"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,44.313,-170,39" TextWrapping="Wrap" Text="Input String" Width="66" Foreground="#FFFF9700"/>
+            <TextBlock x:Name="textBlockBINRemainder" HorizontalAlignment="Right" Margin="0,44.313,-344,39" TextWrapping="Wrap" Text="27/27" Width="37.333" Foreground="#FFFF9700"/>
+            <TextBox x:Name="textBINSaved" Margin="0,0,-631,-579" TextWrapping="Wrap" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" IsReadOnly="True" HorizontalAlignment="Right" Height="584.687" VerticalAlignment="Bottom" Width="527"/>
+            <Button x:Name="buttonBINAdd" Content="Add to List" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-803,0" VerticalAlignment="Top" Width="142" Style="{DynamicResource ButtonDefault}" Click="buttonBINAdd_Click"/>
+        </Grid>
+        <Grid x:Name="gridInibin" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+            <TextBox x:Name="textInibinPrimaryInput" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-344,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" MaxLength="27" TextChanged="textInibinPrimaryInput_TextChanged"/>
+            <TextBox x:Name="textInibinOutput" Height="24.812" Margin="0,19.501,-631,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" HorizontalAlignment="Right" Width="240"/>
+            <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Right" Margin="0,44.313,-170,39" TextWrapping="Wrap" Text="Category" Width="66" Foreground="#FFFF9700"/>
+            <TextBlock x:Name="textBlockInibinRemainder" HorizontalAlignment="Right" Margin="0,44.313,-344,39" TextWrapping="Wrap" Text="27/27" Width="37.333" Foreground="#FFFF9700"/>
+            <TextBox x:Name="textInibinSaved" Margin="0,0,-631,-579" TextWrapping="Wrap" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" IsReadOnly="True" HorizontalAlignment="Right" Height="572.187" VerticalAlignment="Bottom" Width="527"/>
+            <Button x:Name="buttonInibinAdd" Content="Add to List" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-803,0" VerticalAlignment="Top" Width="142" Style="{DynamicResource ButtonDefault}" Click="buttonInibinAdd_Click"/>
+            <TextBox x:Name="textInibinSecondaryInput" HorizontalAlignment="Right" Height="24.812" Margin="0,0,-344,12.187" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="240" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" MaxLength="27" TextChanged="textInibinSecondaryInput_TextChanged"/>
+            <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Right" Margin="0,0,-170,-4.5" TextWrapping="Wrap" Text="Key" Width="66" Foreground="#FFFF9700" Height="16.687" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="textBlockInibinRemainder2" HorizontalAlignment="Right" Margin="0,0,-344,-4.5" TextWrapping="Wrap" Text="27/27" Width="37.333" Foreground="#FFFF9700" Height="16.687" VerticalAlignment="Bottom"/>
+        </Grid>
+        <Grid x:Name="gridRAF" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+            <TextBox x:Name="textRAFInput" HorizontalAlignment="Right" Margin="0,19.501,-344,-11.998" TextWrapping="Wrap" Width="240" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" MaxLength="100" TextChanged="textRAFInput_TextChanged"/>
+            <TextBox x:Name="textRAFOutput" Height="24.812" Margin="0,19.501,-631,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" HorizontalAlignment="Right" Width="240"/>
+            <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Right" Margin="0,0,-170,-28.685" TextWrapping="Wrap" Text="Input String" Width="66" Foreground="#FFFF9700" Height="16.687" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="textBlockRAFRemainder" HorizontalAlignment="Right" Margin="0,0,-344,-28.685" TextWrapping="Wrap" Text="100/100" Width="48" Foreground="#FFFF9700" Height="16.687" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="textRAFSaved" Margin="0,0,-907,-579" TextWrapping="Wrap" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" IsReadOnly="True" HorizontalAlignment="Right" Height="548.687" VerticalAlignment="Bottom" Width="803"/>
+            <Button x:Name="buttonRAFAdd" Content="Add to List" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-803,0" VerticalAlignment="Top" Width="142" Style="{DynamicResource ButtonDefault}" Click="buttonRAFAdd_Click"/>
+        </Grid>
+        <Grid x:Name="gridBone" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+            <TextBox x:Name="textBoneInput" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-344,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" MaxLength="27" TextChanged="textBoneInput_TextChanged"/>
+            <TextBox x:Name="textBoneOutput" Height="24.812" Margin="0,19.501,-631,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" HorizontalAlignment="Right" Width="240"/>
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Right" Margin="0,44.313,-170,39" TextWrapping="Wrap" Text="Input String" Width="66" Foreground="#FFFF9700"/>
+            <TextBlock x:Name="textBlockBoneRemainder" HorizontalAlignment="Right" Margin="0,44.313,-344,39" TextWrapping="Wrap" Text="27/27" Width="37.333" Foreground="#FFFF9700"/>
+            <TextBox x:Name="textBoneSaved" Margin="0,0,-631,-579" TextWrapping="Wrap" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" IsReadOnly="True" HorizontalAlignment="Right" Height="584.687" VerticalAlignment="Bottom" Width="527"/>
+            <Button x:Name="buttonBoneAdd" Content="Add to List" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-803,0" VerticalAlignment="Top" Width="142" Style="{DynamicResource ButtonDefault}" Click="buttonBoneAdd_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>
