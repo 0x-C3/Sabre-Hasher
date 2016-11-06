@@ -122,6 +122,72 @@ namespace Sabre_Hasher
                     }
                 }
             }
+            else if (length == 5)
+            {
+                for (int a = 0; a < alpha.Length; a++)
+                {
+                    for (int b = 0; b < alpha.Length; b++)
+                    {
+                        for (int c = 0; c < alpha.Length; c++)
+                        {
+                            for (int d = 0; d < alpha.Length; d++)
+                            {
+                                for (int e = 0; e < alpha.Length; e++)
+                                {
+                                    brute[0] = alpha[a];
+                                    brute[1] = alpha[b];
+                                    brute[2] = alpha[c];
+                                    brute[3] = alpha[d];
+                                    brute[4] = alpha[e];
+                                    if (GetHash2(brute) == hashToBrute)
+                                    {
+                                        foreach (char charr in brute)
+                                        {
+                                            bruteString += charr;
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (length == 6)
+            {
+                for (int a = 0; a < alpha.Length; a++)
+                {
+                    for (int b = 0; b < alpha.Length; b++)
+                    {
+                        for (int c = 0; c < alpha.Length; c++)
+                        {
+                            for (int d = 0; d < alpha.Length; d++)
+                            {
+                                for (int e = 0; e < alpha.Length; e++)
+                                {
+                                    for (int f = 0; f < alpha.Length; f++)
+                                    {
+                                        brute[0] = alpha[a];
+                                        brute[1] = alpha[b];
+                                        brute[2] = alpha[c];
+                                        brute[3] = alpha[d];
+                                        brute[4] = alpha[e];
+                                        brute[5] = alpha[f];
+                                        if (GetHash2(brute) == hashToBrute)
+                                        {
+                                            foreach (char charr in brute)
+                                            {
+                                                bruteString += charr;
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             return bruteString;
         }
     }

@@ -57,6 +57,7 @@
             <TextBlock x:Name="textBruteforceBINTime" HorizontalAlignment="Left" Height="26" Margin="210,58,0,0" TextWrapping="Wrap" Text="Time Elapsed: Days: 0 Hours: 0 Minutes: 0 Seconds: 0" VerticalAlignment="Top" Width="498" FontSize="16" Foreground="#FFA45C1E"/>
             <TextBox x:Name="textBruteforceBINOutput" HorizontalAlignment="Left" Height="29" Margin="210,89,0,0" Style="{DynamicResource TextBox1}" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="16"/>
             <TextBox x:Name="textBrutefoceBINLength" HorizontalAlignment="Left" Height="29" Margin="511,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Style="{StaticResource TextBox1}" FontSize="17"/>
+            <Image x:Name="image1" HorizontalAlignment="Left" Height="529" Margin="306,210,0,-48" VerticalAlignment="Top" Width="402" Source="Resources/1dmhyj.jpg" Visibility="Hidden"/>
         </Grid>
         <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="373" Margin="986,308,0,0" VerticalAlignment="Top" Width="278" Style="{DynamicResource RichTextBoxStyle1}" IsReadOnly="True">
             <FlowDocument>

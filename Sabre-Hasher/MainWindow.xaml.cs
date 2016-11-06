@@ -164,6 +164,7 @@ namespace Sabre_Hasher
             BINTimeElapsed.Start();
             System.ComponentModel.BackgroundWorker bw = new System.ComponentModel.BackgroundWorker();
             bw.RunWorkerAsync(textBruteforceBINOutput.Text = BinHash.BruteforceLength(Convert.ToUInt32(textBruteforceBINInput.Text), Convert.ToInt32(textBrutefoceBINLength.Text)));
+            image1.Visibility = Visibility.Visible;
             BINTimeElapsed.Stop();
         }
 
