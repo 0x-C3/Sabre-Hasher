@@ -10,7 +10,7 @@ namespace Sabre_Hasher
 {
     class BinHash
     {
-        public static char[] alpha = "abcdefghijklmnopqrstuvwxyz-_0123456789".ToCharArray();
+        public static char[] alpha = "abcdefghijklmnopqrstuvwxyz-_0123456789/".ToCharArray();
         public static uint GetHash(string s)
         {
             s = s.ToLower();
@@ -23,79 +23,106 @@ namespace Sabre_Hasher
 
             return hash;
         }
-        public static string Bruteforce(uint hash, uint length = 0)
+        public static uint GetHash2(char[] s)
         {
-            string brute = "";
-            uint brutedHash = 0;
-            List<string> brutesTried = new List<string>();
-            for (int a = 0; a < alpha.Length; a++)
+            uint hash = 2166136261;
+            for (int i = 0; i < s.Length; i++)
             {
-                brute = alpha[a].ToString();
-                brutedHash = GetHash(brute);
-                if (brutedHash == hash)
+                hash = hash ^ s[i];
+                hash = hash * 16777619;
+            }
+
+            return hash;
+        }
+        public static string BruteforceLength(uint hashToBrute, int length)
+        {
+            char[] brute = new char[length];
+            string bruteString = "";
+            if(length == 1)
+            {
+                for(int a = 0; a < alpha.Length; a++)
                 {
-                    return brute;
-                }
-                else
-                {
-                    for(int b = 0; b < alpha.Length; b++)
+                    brute[0] = alpha[a];
+                    if(GetHash2(brute) == hashToBrute)
                     {
-                        for(int c = 0; c < alpha.Length; c++)
+                        foreach(char c in brute)
                         {
-                            brute = alpha[b].ToString() + alpha[c].ToString();
-                            brutedHash = GetHash(brute);
-                            if (brutedHash == hash)
+                            bruteString += c;
+                        }
+                        break;
+                    }
+                }
+            }
+            else if(length == 2)
+            {
+                for (int a = 0; a < alpha.Length; a++)
+                {
+                    for (int b = 0; b < alpha.Length; b++)
+                    {
+                        brute[0] = alpha[a];
+                        brute[1] = alpha[b];
+                        if (GetHash2(brute) == hashToBrute)
+                        {
+                            foreach (char c in brute)
                             {
-                                return brute;
+                                bruteString += c;
                             }
-                            else
+                            break;
+                        }
+                    }
+                }
+            }
+            else if (length == 3)
+            {
+                for (int a = 0; a < alpha.Length; a++)
+                {
+                    for (int b = 0; b < alpha.Length; b++)
+                    {
+                        for (int c = 0; c < alpha.Length; c++)
+                        {
+                            brute[0] = alpha[a];
+                            brute[1] = alpha[b];
+                            brute[2] = alpha[c];
+                            if(GetHash2(brute) == hashToBrute)
                             {
-                                for (int d = 0; d < alpha.Length; d++)
+                                foreach (char charr in brute)
                                 {
-                                    for (int e = 0; e < alpha.Length; e++)
+                                    bruteString += charr;
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else if (length == 4)
+            {
+                for (int a = 0; a < alpha.Length; a++)
+                {
+                    for (int b = 0; b < alpha.Length; b++)
+                    {
+                        for (int c = 0; c < alpha.Length; c++)
+                        {
+                            for (int d = 0; d < alpha.Length; d++)
+                            {
+                                brute[0] = alpha[a];
+                                brute[1] = alpha[b];
+                                brute[2] = alpha[c];
+                                brute[3] = alpha[d];
+                                if (GetHash2(brute) == hashToBrute)
+                                {
+                                    foreach (char charr in brute)
                                     {
-                                        for(int f = 0; f < alpha.Length; f++)
-                                        {
-                                            brute = alpha[d].ToString() + alpha[e].ToString() + alpha[f].ToString();
-                                            brutedHash = GetHash(brute);
-                                            if (brutedHash == hash)
-                                            {
-                                                return brute;
-                                            }
-                                            else
-                                            {
-                                                for (int g = 0; g < alpha.Length; g++)
-                                                {
-                                                    for (int h = 0; h < alpha.Length; h++)
-                                                    {
-                                                        for (int i = 0; i < alpha.Length; i++)
-                                                        {
-                                                            for(int j = 0; j < alpha.Length; j++)
-                                                            {
-                                                                brute = alpha[g].ToString() + alpha[h].ToString() + alpha[i].ToString() + alpha[j].ToString();
-                                                                brutedHash = GetHash(brute);
-                                                                if (brutedHash == hash)
-                                                                {
-                                                                    return brute;
-                                                                }
-                                                                else
-                                                                {
-                                                                    break;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
+                                        bruteString += charr;
                                     }
+                                    break;
                                 }
                             }
                         }
                     }
                 }
             }
-            return brute;
+            return bruteString;
         }
     }
 }

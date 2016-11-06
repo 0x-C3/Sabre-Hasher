@@ -162,7 +162,9 @@ namespace Sabre_Hasher
             BINTimeElapsed.Tick += BINTimeElapsed_Tick;
             BINTimeElapsed.Interval = new TimeSpan(0, 0, 0, 1);
             BINTimeElapsed.Start();
-            textBruteforceBINOutput.Text = BinHash.Bruteforce(Convert.ToUInt32(textBruteforceBINInput.Text));
+            System.ComponentModel.BackgroundWorker bw = new System.ComponentModel.BackgroundWorker();
+            bw.RunWorkerAsync(textBruteforceBINOutput.Text = BinHash.BruteforceLength(Convert.ToUInt32(textBruteforceBINInput.Text), Convert.ToInt32(textBrutefoceBINLength.Text)));
+            BINTimeElapsed.Stop();
         }
 
         private void BINTimeElapsed_Tick(object sender, EventArgs e)
