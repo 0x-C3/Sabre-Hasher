@@ -15,6 +15,7 @@
         <Button x:Name="buttonInibinHash" Content="Button" HorizontalAlignment="Left" Height="47.312" Margin="10,71.813,0,0" VerticalAlignment="Top" Width="152.667" Template="{DynamicResource ButtonInibin}" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Click="buttonInibinHash_Click"/>
         <Button x:Name="buttonRAFHash" Content="Button" HorizontalAlignment="Left" Height="47.312" Margin="10,124.125,0,0" VerticalAlignment="Top" Width="152.667" Template="{DynamicResource ButtonRAF}" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Click="buttonRAFHash_Click"/>
         <Button x:Name="buttonBoneHash" Content="Button" HorizontalAlignment="Left" Height="47.312" Margin="10,176.437,0,0" VerticalAlignment="Top" Width="152.667" Template="{DynamicResource ButtonBone}" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Click="buttonBoneHash_Click"/>
+        <Button x:Name="buttonBruteforceBIN" Content="Button" HorizontalAlignment="Left" Height="48" Margin="10,229,0,0" VerticalAlignment="Top" Width="153" Template="{DynamicResource ButtonBruteforceBIN}" Click="buttonBruteforceBIN_Click"/>
         <Grid x:Name="gridBIN" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Visibility="Hidden">
             <TextBox x:Name="textBINInput" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-344,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" TextChanged="textBINInput_TextChanged" MaxLength="27"/>
             <TextBox x:Name="textBINOutput" Height="24.812" Margin="0,19.501,-631,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" HorizontalAlignment="Right" Width="240"/>
@@ -49,6 +50,13 @@
             <TextBlock x:Name="textBlockBoneRemainder" HorizontalAlignment="Right" Margin="0,44.313,-344,39" TextWrapping="Wrap" Text="27/27" Width="37.333" Foreground="#FFFF9700"/>
             <TextBox x:Name="textBoneSaved" Margin="0,0,-631,-579" TextWrapping="Wrap" FontSize="16" Style="{DynamicResource TextBox1}" SelectionBrush="#FFA46913" IsReadOnly="True" HorizontalAlignment="Right" Height="584.687" VerticalAlignment="Bottom" Width="527"/>
             <Button x:Name="buttonBoneAdd" Content="Add to List" HorizontalAlignment="Right" Height="24.812" Margin="0,19.501,-803,0" VerticalAlignment="Top" Width="142" Style="{DynamicResource ButtonDefault}" Click="buttonBoneAdd_Click"/>
+        </Grid>
+        <Grid x:Name="gridBruteforceBIN">
+            <TextBox x:Name="textBruteforceBINInput" HorizontalAlignment="Left" Height="28.5" Margin="210,25,0,0" Style="{DynamicResource TextBox1}" TextWrapping="Wrap" VerticalAlignment="Top" Width="289.5" FontSize="16"/>
+            <Button x:Name="buttonBruteforceBINHash" Content="Bruteforce" Height="28.5" Margin="562.5,25,566,0" VerticalAlignment="Top" Style="{StaticResource ButtonDefault}" Click="buttonBruteforceBINHash_Click"/>
+            <TextBlock x:Name="textBruteforceBINTime" HorizontalAlignment="Left" Height="26" Margin="210,58,0,0" TextWrapping="Wrap" Text="Time Elapsed: Days: 0 Hours: 0 Minutes: 0 Seconds: 0" VerticalAlignment="Top" Width="498" FontSize="16" Foreground="#FFA45C1E"/>
+            <TextBox x:Name="textBruteforceBINOutput" HorizontalAlignment="Left" Height="29" Margin="210,89,0,0" Style="{DynamicResource TextBox1}" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="16"/>
+            <TextBox x:Name="textBrutefoceBINLength" HorizontalAlignment="Left" Height="29" Margin="511,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Style="{StaticResource TextBox1}" FontSize="17"/>
         </Grid>
         <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="373" Margin="986,308,0,0" VerticalAlignment="Top" Width="278" Style="{DynamicResource RichTextBoxStyle1}" IsReadOnly="True">
             <FlowDocument>

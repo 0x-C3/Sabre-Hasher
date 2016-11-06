@@ -225,6 +225,62 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+    <ControlTemplate x:Key="ButtonBruteforceBIN" TargetType="{x:Type Button}">
+        <Grid x:Name="grid" Background="{x:Null}" HorizontalAlignment="Left" Height="47.254" VerticalAlignment="Top" Width="152.667">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition From="MouseOver" GeneratedDuration="0:0:0.3" To="Normal"/>
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="MouseOver"/>
+                    <VisualState x:Name="Pressed"/>
+                    <VisualState x:Name="Disabled"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="border" BorderThickness="2.5,2.5,2.5,2.5" HorizontalAlignment="Stretch" Margin="0" Width="Auto">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1F1F1F" Offset="0"/>
+                        <GradientStop Color="#FF1F1F1F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFC37400" Offset="0"/>
+                        <GradientStop Color="#FF51360E" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" FrameworkElement.FlowDirection="RightToLeft" Margin="0" Padding="50,12,5,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Width, Height" Text="Bruteforce BIN" FontSize="15">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFFC500" Offset="0"/>
+                        <GradientStop Color="#FF51360E" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Effect" TargetName="border">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="0"
+                          Color="Tan"
+                          Opacity="5"
+                          BlurRadius="10"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Effect" TargetName="border">
+                    <Setter.Value>
+                        <DropShadowEffect/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
     <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFE2E3EA"/>
     <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FFC5DAED"/>
     <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FFB5CFE7"/>

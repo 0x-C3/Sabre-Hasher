@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Sabre_Hasher
 {
@@ -21,7 +22,9 @@ namespace Sabre_Hasher
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DateTime TimerStart { get; set; }
         public uint lastInibinHash;
+        public DispatcherTimer BINTimeElapsed = new DispatcherTimer(DispatcherPriority.Normal);
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +38,7 @@ namespace Sabre_Hasher
             gridInibin.Visibility = Visibility.Hidden;
             gridRAF.Visibility = Visibility.Hidden;
             gridBone.Visibility = Visibility.Hidden;
+            gridBruteforceBIN.Visibility = Visibility.Hidden;
         }
 
         private void buttonInibinHash_Click(object sender, RoutedEventArgs e)
@@ -43,6 +47,7 @@ namespace Sabre_Hasher
             gridBIN.Visibility = Visibility.Hidden;
             gridRAF.Visibility = Visibility.Hidden;
             gridBone.Visibility = Visibility.Hidden;
+            gridBruteforceBIN.Visibility = Visibility.Hidden;
         }
 
         private void buttonRAFHash_Click(object sender, RoutedEventArgs e)
@@ -51,6 +56,7 @@ namespace Sabre_Hasher
             gridInibin.Visibility = Visibility.Hidden;
             gridBIN.Visibility = Visibility.Hidden;
             gridBone.Visibility = Visibility.Hidden;
+            gridBruteforceBIN.Visibility = Visibility.Hidden;
         }
 
         private void buttonBoneHash_Click(object sender, RoutedEventArgs e)
@@ -59,6 +65,7 @@ namespace Sabre_Hasher
             gridInibin.Visibility = Visibility.Hidden;
             gridBIN.Visibility = Visibility.Hidden;
             gridRAF.Visibility = Visibility.Hidden;
+            gridBruteforceBIN.Visibility = Visibility.Hidden;
         }
 
         private void textBINInput_TextChanged(object sender, TextChangedEventArgs e)
@@ -123,6 +130,12 @@ namespace Sabre_Hasher
             }
             c++;
         }
+        /// <summary>
+        /// Function used to Append colored messages into the RichTextBox
+        /// </summary>
+        /// <param name="rtbOutput">"RichTextBox to get the input into"</param>
+        /// <param name="message">"Message to append"</param>
+        /// <param name="color">"Color of the Message"</param>
         private void UpdateTextbox(RichTextBox rtbOutput, string message, Color color)
         {
             rtbOutput.Dispatcher.Invoke((Action)(() =>
@@ -132,6 +145,38 @@ namespace Sabre_Hasher
                 range.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush((Color)color));
             })
             );
+        }
+
+        private void buttonBruteforceBIN_Click(object sender, RoutedEventArgs e)
+        {
+            gridBruteforceBIN.Visibility = Visibility.Visible;
+            gridBone.Visibility = Visibility.Hidden;
+            gridInibin.Visibility = Visibility.Hidden;
+            gridBIN.Visibility = Visibility.Hidden;
+            gridRAF.Visibility = Visibility.Hidden;
+        }
+
+        private void buttonBruteforceBINHash_Click(object sender, RoutedEventArgs e)
+        {
+            this.TimerStart = DateTime.Now;
+            BINTimeElapsed.Tick += BINTimeElapsed_Tick;
+            BINTimeElapsed.Interval = new TimeSpan(0, 0, 0, 1);
+            BINTimeElapsed.Start();
+            textBruteforceBINOutput.Text = BinHash.Bruteforce(Convert.ToUInt32(textBruteforceBINInput.Text));
+        }
+
+        private void BINTimeElapsed_Tick(object sender, EventArgs e)
+        {
+            /*if(textBruteforceBINOutput.Text != "")
+            {
+                BINTimeElapsed.Stop();
+            }*/
+            var currentValue = DateTime.Now - TimerStart;
+            textBruteforceBINTime.Text = "Time Elapsed: Days: " 
+                + currentValue.Days.ToString() + " Hours: " 
+                + currentValue.Hours.ToString() + " Minutes: " 
+                + currentValue.Minutes.ToString() + " Seconds: " 
+                + currentValue.Seconds.ToString();
         }
     }
 }
